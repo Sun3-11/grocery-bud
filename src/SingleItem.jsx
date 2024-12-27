@@ -9,12 +9,13 @@ const SingleItem = ({ item, removeItem, editItem }) => {
   };
 
   const handleSave = () => {
-    // if (newName.trim() !== item.name) {
-    //   //   editItem(item.id, newName, false);
-    //   //   editItem(item.id, item.name, !item.completed);
-    // } else {
-    //   editItem(item.id, item.name, item.completed);
-    // }
+    if (newName.trim() === "") {
+      editItem(item.id, item.name, item.completed);
+    } else if (newName.trim() !== item.name) {
+      editItem(item.id, newName.trim(), false);
+    } else {
+      editItem(item.id, item.name, item.completed);
+    }
     setIsEditing(false);
   };
 
